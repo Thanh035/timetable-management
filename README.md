@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://sonic.tech">Sonic</a> Website built using <a href="https://quangthanh/">Quang Thanh</a>, a modern static website generator.
+  <a href="https://sonic.tech">Sonic</a> Website built using <a href="https://spring.io/projects/spring-boot">Spring Boot</a>, a modern static website generator.
 </p>
 <br />
 
