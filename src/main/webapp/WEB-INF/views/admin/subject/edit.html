@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/admin}">
+<head>
+    <title th:text="'Cập nhật môn Học'">Cập nhật môn Học</title>
+    <script>
+        $(document).ready(function(){
+            $("#btnUpdateSubject").click(function(e){
+                e.preventDefault();
+                var data = {};
+                var formData = $('#formSubmit').serializeArray();
+                $.each(formData, function (i, v) {
+                    data["" + v.name + ""] = v.value;
+                });
+
+                var id = $('#id').val();
+                updateSubject(data);
+
+                function updateSubject(data) {
+                    $.ajax({
+                        url: 'http://localhost:8096/api/v1/subjects/'+id,
+                        type: 'PUT',
+                        contentType: 'application/json',
+                        data: JSON.stringify(data),
+                        dataType: 'json',
+                        success: function (result) {
+                            window.location.href = "admin/subject/edit?id=" + result.id + "&message=update_success";
+                        },
+                        error: function (error) {
+                            window.location.href = "admin/subject/edit?id="+result.id+"&message=error_system";
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div layout:fragment="content">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Cập nhật Môn Học</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="subjects/list">Môn học</a></li>
+                        <li class="breadcrumb-item active">Chỉnh sửa môn học</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form th:object="${subject}" id="formSubmit">
+                            <div class="row">
+                                <input type="hidden" th:value="${subject.id}" id="id" name="id"/>
+                                <div class="col-12">
+                                    <h5 class="form-title"><span>Thông tin Môn học</span></h5>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group local-forms">
+                                        <label>Tên môn học <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" th:value="${subject.name}" id="name"
+                                               name="name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group local-forms">
+                                        <label>Mã môn học <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" th:value="${subject.code}" id="code"
+                                               name="code">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group local-forms">
+                                        <label>Hình thức thi <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" th:value="${subject.formExam}"
+                                               id="formExam" name="formExam">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="student-submit">
+                                        <input type="button" class="btn btn-primary" id="btnUpdateSubject"
+                                               value="Lưu"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
