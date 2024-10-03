@@ -1,6 +1,6 @@
 package com.example.myapp.mapper.row;
 
-import com.example.myapp.model.Exceldata;
+import com.example.myapp.domain.model.Exceldata;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

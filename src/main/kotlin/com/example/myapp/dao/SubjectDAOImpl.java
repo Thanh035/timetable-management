@@ -2,7 +2,7 @@ package com.example.myapp.dao;
 
 import com.example.myapp.dao.impl.SubjectDAO;
 import com.example.myapp.mapper.row.SubjectRowMapper;
-import com.example.myapp.model.Subject;
+import com.example.myapp.domain.model.Subject;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -49,7 +49,7 @@ public class SubjectDAOImpl implements SubjectDAO {
         );
     }
 
-    public void updateSubject(Subject update) {
+    public Subject updateSubject(Subject update) {
         if (update.getName() != null) {
             String sql = "UPDATE subjects SET name = ? WHERE id = ?";
             int result = jdbcTemplate.update(
@@ -75,6 +75,7 @@ public class SubjectDAOImpl implements SubjectDAO {
                     update.getFormExam(),
                     update.getId());
         }
+        return update;
     }
 
     public void deleteSubjectById(Long subjectId) {

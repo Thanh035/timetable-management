@@ -1,6 +1,6 @@
 package com.example.myapp.controler.admin;
 
-import com.example.myapp.dto.SubjectDTO;
+import com.example.myapp.domain.dto.SubjectDTO;
 import com.example.myapp.service.ISubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

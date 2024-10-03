@@ -1,4 +1,4 @@
-package com.example.myapp.dto;
+package com.example.myapp.domain.dto;
 
 public record SubjectDTO(
         Long id,

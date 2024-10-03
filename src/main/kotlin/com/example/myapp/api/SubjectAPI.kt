@@ -2,7 +2,7 @@ package com.example.myapp.api
 
 import com.example.myapp.api.input.SubjectCreateRequest
 import com.example.myapp.api.input.SubjectUpdateRequest
-import com.example.myapp.dto.SubjectDTO
+import com.example.myapp.domain.dto.SubjectDTO
 import com.example.myapp.service.ISubjectService
 import lombok.AllArgsConstructor
 import org.springframework.beans.factory.annotation.Autowired
@@ -40,8 +40,8 @@ class SubjectAPI {
     fun updateSubject(
             @PathVariable("subjectId") subjectId: Long,
             @RequestBody updateRequest: SubjectUpdateRequest
-    ) {
-        subjectService.updateSubject(subjectId, updateRequest)
+    ) : SubjectDTO {
+        return subjectService.updateSubject(subjectId, updateRequest)
     }
 
 }

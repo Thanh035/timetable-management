@@ -2,7 +2,7 @@ package com.example.myapp.dao;
 
 import com.example.myapp.dao.impl.ExcelDataDAO;
 import com.example.myapp.mapper.row.ExcelDataRowMapper;
-import com.example.myapp.model.Exceldata;
+import com.example.myapp.domain.model.Exceldata;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

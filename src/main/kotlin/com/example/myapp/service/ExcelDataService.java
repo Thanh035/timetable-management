@@ -1,7 +1,7 @@
 package com.example.myapp.service;
 
 import com.example.myapp.dao.impl.ExcelDataDAO;
-import com.example.myapp.model.Exceldata;
+import com.example.myapp.domain.model.Exceldata;
 import com.example.myapp.utils.ReadExcelDataUtil;
 import com.example.myapp.utils.WriteExcelDataUtil;
 import jakarta.servlet.http.HttpServletResponse;

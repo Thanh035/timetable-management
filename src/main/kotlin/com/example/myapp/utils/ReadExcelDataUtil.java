@@ -1,6 +1,6 @@
 package com.example.myapp.utils;
 
-import com.example.myapp.model.Exceldata;
+import com.example.myapp.domain.model.Exceldata;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;

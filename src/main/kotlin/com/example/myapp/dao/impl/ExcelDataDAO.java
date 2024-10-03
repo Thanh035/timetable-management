@@ -1,7 +1,6 @@
 package com.example.myapp.dao.impl;
 
-import com.example.myapp.model.Exceldata;
-import com.example.myapp.model.Subject;
+import com.example.myapp.domain.model.Exceldata;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
