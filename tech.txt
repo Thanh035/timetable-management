@@ -1,7 +1,0 @@
-netlify
-jdk 17: SpringBoot,maven
-+,
-
-jdk 8: java EJB,not maven or gradle
-+,jpa 
-+,mybatis
