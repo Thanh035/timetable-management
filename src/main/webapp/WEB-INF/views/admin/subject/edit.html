@@ -4,8 +4,8 @@
 <head>
     <title th:text="'Cập nhật môn Học'">Cập nhật môn Học</title>
     <script>
-        $(document).ready(function(){
-            $("#btnUpdateSubject").click(function(e){
+        $(document).ready(function () {
+            $("#btnUpdateSubject").click(function (e) {
                 e.preventDefault();
                 var data = {};
                 var formData = $('#formSubmit').serializeArray();
@@ -18,16 +18,16 @@
 
                 function updateSubject(data) {
                     $.ajax({
-                        url: 'http://localhost:8096/api/v1/subjects/'+id,
+                        url: 'http://localhost:8096/api/v1/subjects/' + id,
                         type: 'PUT',
                         contentType: 'application/json',
                         data: JSON.stringify(data),
                         dataType: 'json',
-                        success: function (result) {
-                            window.location.href = "admin/subject/edit?id=" + result.id + "&message=update_success";
+                        success: function () {
+                            window.location.href = "http://localhost:8096/admin/subject/list?message=update_success"
                         },
                         error: function (error) {
-                            window.location.href = "admin/subject/edit?id="+result.id+"&message=error_system";
+                            window.location.href = "http://localhost:8096/admin/subject/list?message=error_system";
                         },
                     });
                 }
@@ -37,7 +37,7 @@
 
 </head>
 <body>
-    <div layout:fragment="content">
+<div layout:fragment="content">
     <div class="content container-fluid">
         <div class="page-header">
             <div class="row align-items-center">
@@ -50,14 +50,13 @@
                 </div>
             </div>
         </div>
-
+        <input type="hidden" th:value="${subject.id}" id="id"/>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
                         <form th:object="${subject}" id="formSubmit">
                             <div class="row">
-                                <input type="hidden" th:value="${subject.id}" id="id" name="id"/>
                                 <div class="col-12">
                                     <h5 class="form-title"><span>Thông tin Môn học</span></h5>
                                 </div>

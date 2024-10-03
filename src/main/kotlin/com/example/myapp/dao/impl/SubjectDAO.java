@@ -1,6 +1,6 @@
 package com.example.myapp.dao.impl;
 
-import com.example.myapp.model.Subject;
+import com.example.myapp.domain.model.Subject;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public interface SubjectDAO {
 
     void insertSubject(Subject subject);
 
-    void updateSubject(Subject update);
+    Subject updateSubject(Subject update);
 
     void deleteSubjectById(Long subjectId);
 }

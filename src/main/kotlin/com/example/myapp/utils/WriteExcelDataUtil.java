@@ -1,6 +1,6 @@
 package com.example.myapp.utils;
 
-import com.example.myapp.model.Exceldata;
+import com.example.myapp.domain.model.Exceldata;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;

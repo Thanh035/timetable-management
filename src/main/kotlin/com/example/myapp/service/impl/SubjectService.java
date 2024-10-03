@@ -3,11 +3,11 @@ package com.example.myapp.service.impl;
 import com.example.myapp.api.input.SubjectCreateRequest;
 import com.example.myapp.api.input.SubjectUpdateRequest;
 import com.example.myapp.dao.impl.SubjectDAO;
-import com.example.myapp.dto.SubjectDTO;
+import com.example.myapp.domain.dto.SubjectDTO;
 import com.example.myapp.exception.RequestValidationException;
 import com.example.myapp.exception.ResourceNotFoundException;
-import com.example.myapp.mapper.SubjectDTOMapper;
-import com.example.myapp.model.Subject;
+import com.example.myapp.mapper.dto.SubjectDTOMapper;
+import com.example.myapp.domain.model.Subject;
 import com.example.myapp.service.ISubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +42,7 @@ public class SubjectService implements ISubjectService {
         subjectDAO.deleteSubjectById(subjectId);
     }
 
-    public void updateSubject(Long subjectId, SubjectUpdateRequest updateRequest) {
+    public SubjectDTO updateSubject(Long subjectId, SubjectUpdateRequest updateRequest) {
         Subject subject = subjectDAO.selectSubjectById(subjectId)
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "subject with id [%s] not found".formatted(subjectId)
@@ -69,7 +69,7 @@ public class SubjectService implements ISubjectService {
             throw new RequestValidationException("no data changes found");
         }
 
-        subjectDAO.updateSubject(subject);
+        return subjectDTOMapper.apply(subjectDAO.updateSubject(subject));
     }
 
     public void addNewStudent(SubjectCreateRequest request) {

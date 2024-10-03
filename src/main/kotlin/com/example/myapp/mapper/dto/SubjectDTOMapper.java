@@ -1,7 +1,7 @@
-package com.example.myapp.mapper;
+package com.example.myapp.mapper.dto;
 
-import com.example.myapp.dto.SubjectDTO;
-import com.example.myapp.model.Subject;
+import com.example.myapp.domain.dto.SubjectDTO;
+import com.example.myapp.domain.model.Subject;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Function;
