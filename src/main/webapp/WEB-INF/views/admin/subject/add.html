@@ -3,6 +3,35 @@
       layout:decorate="~{layouts/admin}">
 <head>
   <title>Tạo môn Học</title>
+
+  <script>
+    $(document).ready(function () {
+      $("#btnCreateSubject").click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#formSubmit').serializeArray();
+        $.each(formData, function (i, v) {
+          data["" + v.name + ""] = v.value;
+        });
+        createSubject(data);
+        function createSubject(data) {
+          $.ajax({
+            url: 'http://localhost:8096/api/subjects',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function () {
+              window.location.href = "http://localhost:8096/admin/subject/list?message=update_success"
+            },
+            error: function (error) {
+              window.location.href = "http://localhost:8096/admin/subject/list?message=error_system";
+            },
+          });
+        }
+      });
+    });
+  </script>
 </head>
 <body>
 <div layout:fragment="content">
@@ -23,7 +52,7 @@
       <div class="col-sm-12">
         <div class="card">
           <div class="card-body">
-            <form>
+            <form id="formSubmit">
               <div class="row">
                 <div class="col-12">
                   <h5 class="form-title"><span>Tạo mới Môn học</span></h5>
@@ -31,18 +60,19 @@
                 <div class="col-12 col-sm-4">
                   <div class="form-group local-forms">
                     <label>Tên môn học <span class="login-danger">*</span></label>
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" id="name" name="name">
                   </div>
                 </div>
                 <div class="col-12 col-sm-4">
                   <div class="form-group local-forms">
                     <label>Mã môn học <span class="login-danger">*</span></label>
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" id="code" name="code">
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="student-submit">
-                    <button type="submit" class="btn btn-primary">Tạo</button>
+                    <input type="button" class="btn btn-primary" id="btnCreateSubject"
+                           value="Tạo"/>
                   </div>
                 </div>
               </div>
@@ -53,5 +83,6 @@
     </div>
   </div>
 </div>
+
 </body>
 </html>
