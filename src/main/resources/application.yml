@@ -5,11 +5,7 @@ spring:
     prefix: /WEB-INF/views/
     suffix: .html
   datasource:
-<<<<<<< HEAD
-    url: jdbc:postgresql://localhost:5432/e-learning?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-=======
     url: jdbc:postgresql://localhost:5432/e-learning
->>>>>>> 754ab77b6221b48b67bc27d4ac1e25b0e8d28f6a
     username: root
     password: 123
 
