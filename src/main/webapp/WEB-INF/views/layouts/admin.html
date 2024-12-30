@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title th:text="${title}">Default Title</title>
+    <link rel="shortcut icon" th:href="@{/template/admin/img/logo-small.png}">
+
+    <link rel="stylesheet" th:href="@{/template/admin/plugins/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/template/admin/plugins/feather/feather.css}"/>
+    <link rel="stylesheet" th:href="@{/template/admin/plugins/icons/flags/flags.css}"/>
+    <link rel="stylesheet" th:href="@{/template/admin/plugins/fontawesome/css/fontawesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/template/admin/plugins/fontawesome/css/all.min.css}"/>
+    <link rel="stylesheet" th:href="@{/template/admin/plugins/datatables/datatables.min.css}"/>
+    <link rel="stylesheet" th:href="@{/template/admin/css/style.css}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script th:src="@{/template/admin/js/jquery-3.6.0.min.js}"></script>
+</head>
+<body>
+
+<div class="main-wrapper">
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <div class="page-wrapper">
+
+        <div layout:fragment="content"></div>
+
+        <div th:replace="fragments/footer :: footer"></div>
+
+    </div>
+
+</div>
+    <script th:src="@{/template/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/template/admin/js/feather.min.js}"></script>
+    <script th:src="@{/template/admin/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+    <script th:src="@{/template/admin/plugins/datatables/datatables.min.js}"></script>
+    <script th:src="@{/template/admin/js/script.js}"></script>
+</body>
+</html>

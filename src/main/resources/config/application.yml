@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:postgresql://localhost:5432/e-learning?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    password: 123
+  thymeleaf:
+    prefix: /WEB-INF/views/
+    suffix: .html
+  application:
+    name: demo
+#cors:
+#  allowed-headers: '*'
+#  allowed-origins: '*'
+#  exposed-headers: '*'
+#  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+server:
+  port: 8096
+
+my-config:
+  security:
+    remember-me:
+      # security key (this key should be unique for your application, and kept secret)
+      key: bb4c2b03c36ae2bd5eddf30f101cb361a19e9f40846e0e4820456f041e83edc7efdc78aaefddd44abd9d3cad87a19d49888c
+
+
